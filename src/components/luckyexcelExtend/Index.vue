@@ -1,6 +1,6 @@
 <template>
     <div class="LuckyExcelExtend">
-        <iframe ref="iframeContent" src="/table.html" frameborder="0" @load="load"></iframe>
+        <iframe ref="iframeContent" src="/luckysheet/table.html" frameborder="0" @load="load"></iframe>
     </div>
 </template>
 

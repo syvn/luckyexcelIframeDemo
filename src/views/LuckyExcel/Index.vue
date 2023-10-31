@@ -1,7 +1,11 @@
 <template>
     <div class="LuckyExcel">
-        <input type="file" @change="changeFile" />
+        <div class="input-control">
+            <input type="file" @change="changeFile($event, 'fileRef')" />
+            <input type="file" @change="changeFile($event, 'fileRef1')" />
+        </div>
         <LuckyExcelExtend ref="fileRef"></LuckyExcelExtend>
+        <LuckyExcelExtend ref="fileRef1"></LuckyExcelExtend>
     </div>
 </template>
 
@@ -22,10 +26,10 @@ export default {
     watch: {},
     created() {},
     methods: {
-        changeFile(event) {
+        changeFile(event, type) {
             this.file = event.target.files[0];
 
-            this.$refs.fileRef.selectFile(this.file);
+            this.$refs[type].selectFile(this.file);
         },
     },
 };
@@ -35,8 +39,9 @@ export default {
 .LuckyExcel {
     display: flex;
     flex-direction: column;
-    .tip {
-        margin-bottom: 20px;
+    .input-control {
+        height: 40px;
+        line-height: 40px;
     }
     overflow: auto;
     height: 100vh;
