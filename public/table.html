@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+        <title><%= htmlWebpackPlugin.options.title %></title>
+
+        <link rel="stylesheet" href="./luckysheet/plugins/css/pluginsCss.css" />
+        <link rel="stylesheet" href="./luckysheet/plugins/plugins.css" />
+        <link rel="stylesheet" href="./luckysheet/css/luckysheet.css" />
+        <link rel="stylesheet" href="./luckysheet/assets/iconfont/iconfont.css" />
+        <script src="./luckysheet/plugins/js/plugin.js"></script>
+        <script src="./luckysheet/luckysheet.umd.js"></script>
+    </head>
+    <style>
+        #luckysheet-sheet-container {
+            max-width: calc(100% - 70px);
+        }
+        #luckysheet-sheet-container .luckysheet-mousedown-cancel {
+            display: none;
+        }
+    </style>
+    <body>
+        <div id="luckysheet" style="margin: 0px; padding: 0px; position: absolute; width: 100%; height: 100%; left: 0px; top: 0px"></div>
+    </body>
+
+    <script>
+        window.addEventListener('message', function (event) {
+            const params = JSON.parse(event.data);
+
+            luckysheet.create(params);
+        });
+    </script>
+</html>
